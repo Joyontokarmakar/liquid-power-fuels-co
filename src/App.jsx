@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
         <div>
           <Header/>
-            <div className={''}>
+            <div className={'app-padding py-10'}>
               <Routes>
                 <Route path={route.ROOT_PATH} element={<Home/>} />
                 <Route path={route.RESULT_PATH} element={<Result/>} />

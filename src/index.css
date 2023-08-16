@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.app-padding{
+    @apply px-5
+}
+
+.input-card{
+    @apply border p-3
+}
+.input-label{
+    @apply text-lg font-bold text-gray-700
+}
+.custom-input{
+    @apply border border-gray-400 rounded focus:outline-none p-2 w-full mt-2
+}
