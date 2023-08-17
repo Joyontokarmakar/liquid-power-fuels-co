@@ -10,12 +10,14 @@ export default {
         primaryColor: '#164e63',
         primaryLightColor: '#0d9488',
         darkAshColor: '#0f172a',
+        // darkblueColor: '#000011',
         lightColor: '#ecfeff',
         dimLightColor: '#cffafe',
         darkColor: '#030712',
       },
       boxShadow: {
-        header: '-5px 0px 34px 0px #D7D7D7;',
+        header: '0px -9px 43px 0px #1c1c1c',
+        form:'0px 0px 12px 0px #1e248154'
       },
       fontFamily: {
         // poppins: ['Poppins', 'sans-serif'],

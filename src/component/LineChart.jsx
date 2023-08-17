@@ -113,6 +113,7 @@ export const LineChart = (prop) => {
                     id={'file'}
                     label={'Choose Your CSV File'}
                     type={'file'}
+                    accept={'.csv'}
                     onChange={handleFileChange}
                     disability={false}
                 />

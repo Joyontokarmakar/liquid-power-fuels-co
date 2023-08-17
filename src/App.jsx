@@ -10,10 +10,10 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <div>
+        <div className={'bg-darkColor '}>
           <Header/>
-            <div className={'flex justify-center lg:py-10'}>
-              <div className={'w-full md:w-2/3'}>
+            <div className={'flex justify-center min-h-[calc(100vh-130px)]'}>
+              <div className={'w-full md:w-2/3 lg:py-10 '}>
                 <Routes>
                   <Route path={route.ROOT_PATH} element={<Home/>} />
                   <Route path={route.RESULT_PATH} element={<Result/>} />

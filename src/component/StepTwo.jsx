@@ -39,7 +39,7 @@ export const StepTwo = (prop) => {
 
     return (
         <div>
-            <div className={'bg-darkAshColor form-card'}>
+            <div className={'bg-darkAshColor form-card mt-10'}>
                 <p className={'form-title'}>Step-2: Project Details</p>
                 <div className={'grid grid-cols-2 gap-2 mt-4'}>
                     <Input
@@ -136,7 +136,7 @@ export const StepTwo = (prop) => {
                 <div className={'col-span-2'}>
                     <p className={'text-center mt-12'}>
                         <Link to="/result"
-                              className={'bg-primaryColor text-lightColor rounded-md text-lg px-10 py-2'}
+                              className={'bg-primaryColor text-lightColor rounded-md text-lg px-10 py-2 active:scale-90 ease-in-out duration-100'}
                               state={{
                                   enteredName: inputFormOneData.name,
                                   enteredDes: inputFormOneData.description,
