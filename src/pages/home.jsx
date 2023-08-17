@@ -2,12 +2,35 @@ import {useState} from "react";
 import Papa from "papaparse";
 import {Input} from "../component/card/input.jsx";
 import {Link} from "react-router-dom";
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+} from 'chart.js';
+import { Line } from "react-chartjs-2";
 
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+);
 export const Home = () => {
     const [enteredName, setEnteredName] = useState("");
     const [enteredDes, setEnteredDes] = useState("");
     const [enteredClient, setEnteredClient] = useState("");
     const [enteredContractor, setEnteredContractor] = useState("");
+    const [kpData, setKpData] = useState([]);
+    const [xData, setXData] = useState([]);
     const [minX, setMinX] = useState( 0);
     const [maxX, setMaxX] = useState( 0);
     const [minY, setMinY] = useState( 0);
@@ -51,15 +74,39 @@ export const Home = () => {
                 keys.forEach(key => {
                     resultArrays[key] = results.data.map(item => item[key]);
                 });
-
-                setMinX(Math.min(...resultArrays.X))
-                setMaxX(Math.max(...resultArrays.X))
-                setMinY(Math.min(...resultArrays.Y))
-                setMaxY(Math.max(...resultArrays.Y))
-                setMinZ(Math.min(...resultArrays.Z))
-                setMaxZ(Math.max(...resultArrays.Z))
+                setKpData(resultArrays.KP);
+                setXData(resultArrays.X);
+                setMinX(Math.min(...resultArrays.X));
+                setMaxX(Math.max(...resultArrays.X));
+                setMinY(Math.min(...resultArrays.Y));
+                setMaxY(Math.max(...resultArrays.Y));
+                setMinZ(Math.min(...resultArrays.Z));
+                setMaxZ(Math.max(...resultArrays.Z));
             },
         });
+    };
+
+    const options = {
+        responsive: true,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Chart.js Line Chart',
+            },
+        },
+    };
+
+    const labels = kpData;
+
+    const data = {
+        labels,
+        datasets: [
+            {
+                data: xData,
+                borderColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            }
+        ],
     };
 
     return (
@@ -105,7 +152,7 @@ export const Home = () => {
             <form className={'bg-white shadow-md rounded px-8 pt-6 pb-8 mt-8 border border-gray-300 rounded'}>
                 <p className={'mb-3 text-lg font-bold'}>Step-2:</p>
                 <div className={'grid grid-cols-2 gap-2'}>
-                    <div className={'col-span-2'}>
+                    <div className={'col-span-2 grid grid-cols-2 gap-2'}>
                         <Input
                             id={'file'}
                             label={'Upload CSV File'}
@@ -113,6 +160,13 @@ export const Home = () => {
                             onChange={handleFileChange}
                             disability={false}
                         />
+                        <div className={'input-card'}>
+                            {
+                                kpData.length ?
+                                    <Line doptions={options} data={data}
+                                    /> : <></>
+                            }
+                        </div>
                     </div>
                     <Input
                         id={'pn2'}
