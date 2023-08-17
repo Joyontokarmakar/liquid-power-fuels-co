@@ -107,8 +107,8 @@ export const LineChart = (prop) => {
         ],
     };
     return (
-        <div className={'col-span-2 mt-4'}>
-            <div className={'mx-auto w-1/2'}>
+        <div className={'mt-4'}>
+            <div className={'mx-auto w-full lg:w-1/2'}>
                 <ChooseFile
                     id={'file'}
                     label={'Choose Your CSV File'}
@@ -121,7 +121,7 @@ export const LineChart = (prop) => {
             {
                 kpData.length
                     ?
-                    <div className={'mx-auto w-4/5 chart-card'}>
+                    <div className={'mx-auto w-full lg:w-4/5 chart-card'}>
                         {
                             loading
                                 ? <Loader/>

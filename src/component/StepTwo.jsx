@@ -41,7 +41,7 @@ export const StepTwo = (prop) => {
         <div>
             <div className={'bg-darkAshColor form-card mt-10'}>
                 <p className={'form-title'}>Step-2: Project Details</p>
-                <div className={'grid grid-cols-2 gap-2 mt-4'}>
+                <div className={'grid grid-cols-1 lg:grid-cols-2 gap-2 mt-4'}>
                     <Input
                         id={'pn2'}
                         label={'Project Name'}
@@ -71,11 +71,11 @@ export const StepTwo = (prop) => {
                         disability={true}
                     />
 
-                    <div className={'col-span-2'}>
+                    <div className={'col-span-1 lg:col-span-2'}>
                         <LineChart onInputCSVData={inputChartDataHandler}/>
                     </div>
 
-                    <div className={'col-span-2 grid grid-cols-2 gap-2 mt-5'}>
+                    <div className={'col-span-1 lg:col-span-2 grid-cols-1 lg:grid grid-cols-2 gap-2 mt-5'}>
                         <Input
                             id={'min-x'}
                             label={'Min-X'}
@@ -133,7 +133,7 @@ export const StepTwo = (prop) => {
                     </div>
                 </div>
 
-                <div className={'col-span-2'}>
+                <div className={'col-span-1 lg:col-span-2'}>
                     <p className={'text-center mt-12'}>
                         <Link to="/result"
                               className={'bg-primaryColor text-lightColor rounded-md text-lg px-10 py-2 active:scale-90 ease-in-out duration-100'}

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .input-card{
-    @apply px-3 py-2
+    @apply px-2 lg:px-3 py-2
 }
 .input-label{
     @apply text-lg font-bold text-lightColor
@@ -25,7 +25,7 @@
 }
 
 .form-card{
-    @apply rounded-lg px-8 pt-6 pb-8 mb-4 shadow-form
+    @apply rounded-lg px-2 lg:px-8 py-3 lg:py-6 pb-8 mb-4 shadow-form
 }
 
 .form-title{
@@ -33,5 +33,5 @@
 }
 
 .chart-card{
-    @apply bg-lightColor px-8 py-6 rounded-md mt-4
+    @apply bg-lightColor px-2 lg:px-8 py-3 lg:py-6 rounded-md mt-4
 }
