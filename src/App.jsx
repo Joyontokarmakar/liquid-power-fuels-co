@@ -12,11 +12,13 @@ function App() {
       <BrowserRouter>
         <div>
           <Header/>
-            <div className={'app-padding py-10'}>
-              <Routes>
-                <Route path={route.ROOT_PATH} element={<Home/>} />
-                <Route path={route.RESULT_PATH} element={<Result/>} />
-              </Routes>
+            <div className={'flex justify-center lg:py-10'}>
+              <div className={'w-full md:w-2/3'}>
+                <Routes>
+                  <Route path={route.ROOT_PATH} element={<Home/>} />
+                  <Route path={route.RESULT_PATH} element={<Result/>} />
+                </Routes>
+              </div>
             </div>
           <Footer/>
         </div>

@@ -7,7 +7,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        primaryColor: '#111D5E',
+        primaryColor: '#164e63',
+        primaryLightColor: '#0d9488',
+        darkAshColor: '#0f172a',
+        lightColor: '#ecfeff',
+        dimLightColor: '#cffafe',
+        darkColor: '#030712',
       },
       boxShadow: {
         header: '-5px 0px 34px 0px #D7D7D7;',

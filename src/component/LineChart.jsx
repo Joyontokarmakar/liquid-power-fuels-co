@@ -1,7 +1,8 @@
-import {Input} from "./card/input.jsx";
+import {useState} from "react";
+import {ChooseFile} from "./ChooseFile.jsx";
+import Loader from "./Loader.jsx";
 import {Line} from "react-chartjs-2";
 import Papa from "papaparse";
-import {useState} from "react";
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -25,12 +26,14 @@ ChartJS.register(
 export const LineChart = (prop) => {
     const [kpData, setKpData] = useState([]);
     const [xData, setXData] = useState([]);
-
+    const [loading, setLoading] = useState(false)
     const handleFileChange = (event) => {
         Papa.parse(event.target.files[0], {
+
             header: true,
             skipEmptyLines: true,
             complete: function (results) {
+                setLoading(true);
                 const keys = ['KP', 'X', 'Y', 'Z'];
                 const resultArrays = {};
                 keys.forEach(key => {
@@ -47,13 +50,8 @@ export const LineChart = (prop) => {
                     minZ: Math.min(...resultArrays.Z),
                     maxZ: Math.max(...resultArrays.Z)
                 }
-                // setMinX(Math.min(...resultArrays.X));
-                // setMaxX(Math.max(...resultArrays.X));
-                // setMinY(Math.min(...resultArrays.Y));
-                // setMaxY(Math.max(...resultArrays.Y));
-                // setMinZ(Math.min(...resultArrays.Z));
-                // setMaxZ(Math.max(...resultArrays.Z));
                 prop.onInputCSVData(csvData)
+                setLoading(false)
             },
         });
     };
@@ -63,9 +61,37 @@ export const LineChart = (prop) => {
         plugins: {
             title: {
                 display: true,
-                text: 'Chart.js Line Chart',
+                text: 'Prototype Chart with KP and X value from CSV',
             },
         },
+        scales: {
+            x: {
+                display: true,
+                title: {
+                    display: true,
+                    text: 'x-axis = KP',
+                    color: '#0d9488',
+                    font: {
+                        size: 14,
+                        weight: 'bold',
+                        lineHeight: 1.2,
+                    },
+                }
+            },
+            y: {
+                display: true,
+                title: {
+                    display: true,
+                    text: 'y-axis = X',
+                    color: '#0d9488',
+                    font: {
+                        size: 14,
+                        weight: 'bold',
+                        lineHeight: 1.2,
+                    },
+                }
+            }
+        }
     };
 
     const labels = kpData;
@@ -75,27 +101,35 @@ export const LineChart = (prop) => {
         datasets: [
             {
                 data: xData,
-                borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                borderColor: '#0d9488',
+                backgroundColor: '#ef7f1d',
             }
         ],
     };
     return (
-        <div className={'col-span-2 grid grid-cols-2 gap-2'}>
-            <Input
-                id={'file'}
-                label={'Upload CSV File'}
-                type={'file'}
-                onChange={handleFileChange}
-                disability={false}
-            />
-            <div className={'input-card'}>
-                {
-                    kpData.length ?
-                        <Line doptions={options} data={data}
-                        /> : <></>
-                }
+        <div className={'col-span-2 mt-4'}>
+            <div className={'mx-auto w-1/2'}>
+                <ChooseFile
+                    id={'file'}
+                    label={'Choose Your CSV File'}
+                    type={'file'}
+                    onChange={handleFileChange}
+                    disability={false}
+                />
             </div>
+            {
+                kpData.length
+                    ?
+                    <div className={'mx-auto w-4/5 chart-card'}>
+                        {
+                            loading
+                                ? <Loader/>
+                                : <Line options={options} data={data}/>
+                        }
+                    </div>
+                    :
+                    <></>
+            }
         </div>
     )
 }

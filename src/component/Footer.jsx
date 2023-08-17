@@ -2,8 +2,14 @@ import {Link} from "react-router-dom";
 
 export const Footer = () => {
     return (
-        <div className={'bg-blue-200 text-center '}>
-            <p>© 2023 <Link to='/'>XYZ-Engine</Link> all rights reserved.</p>
+        <div className={'bg-darkAshColor py-1'}>
+            <p className={'text-center text-xs md:text-sm text-primaryLightColor'}>
+                <span>&copy; 2023 </span>
+                <Link to={'/'} className={'font-bold text-dimLightColor'}>
+                    XYZ-Engine
+                </Link>
+                <span> all rights reserved</span>
+            </p>
         </div>
     )
 }
