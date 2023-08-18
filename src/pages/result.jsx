@@ -1,7 +1,7 @@
 import {Link, useLocation} from "react-router-dom";
 import jsPDF from 'jspdf';
 import 'jspdf-autotable'
-import {Table} from "../component/Table.jsx";
+import {CustomTable} from "../component/CustomTable.jsx";
 
 export const Result = () => {
     const location = useLocation();
@@ -36,7 +36,7 @@ export const Result = () => {
         <div>
             <div className={'w-full form-card bg-lightColor text-primaryColor'}>
                 <p className={'form-title'}>Project Details</p>
-                <Table tableData={propsData}/>
+                <CustomTable tableData={propsData}/>
             </div>
 
             <div className={'flex flex-col lg:flex-row justify-center gap-y-6 lg:gap-y-0 lg:gap-x-6 my-8'}>

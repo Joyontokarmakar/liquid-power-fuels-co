@@ -1,6 +1,6 @@
 
 export const ChooseFile = (prop) => {
-    let {id, label, type, accept, onChange, disability} = prop
+    let {id, label, type, accept, onChange, isDisable} = prop
     return (
         <div className={'file-choose-card'}>
             <label htmlFor={id} className={'file-input-label'}>{label}</label>
@@ -9,7 +9,7 @@ export const ChooseFile = (prop) => {
                 type={type}
                 accept={accept}
                 onChange={onChange}
-                disabled={disability}
+                disabled={isDisable}
                 className={ 'file-input' }
             />
         </div>

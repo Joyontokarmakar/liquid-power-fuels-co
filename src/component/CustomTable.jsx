@@ -1,5 +1,5 @@
 
-export const Table = (prop) => {
+export const CustomTable = (prop) => {
     const {tableData} = prop
     const styles = {
         tableStyle: {

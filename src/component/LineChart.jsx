@@ -115,7 +115,7 @@ export const LineChart = (prop) => {
                     type={'file'}
                     accept={'.csv'}
                     onChange={handleFileChange}
-                    disability={false}
+                    isDisable={false}
                 />
             </div>
             {

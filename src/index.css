@@ -21,7 +21,7 @@
 }
 
 .file-input{
-    @apply w-full border border-primaryColor rounded-full text-sm tracking-[1px] text-darkColor file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:tracking-[2px] file:font-semibold file:bg-primaryColor file:text-dimLightColor hover:file:bg-primaryLightColor hover:cursor-pointer
+    @apply w-full border border-primaryColor rounded-full text-sm tracking-[1px] text-darkColor file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:tracking-[2px] file:font-semibold file:bg-primaryColor file:text-dimLightColor hover:file:bg-primaryLightColor hover:file:cursor-pointer hover:cursor-pointer
 }
 
 .form-card{
