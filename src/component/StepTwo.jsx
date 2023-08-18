@@ -40,7 +40,7 @@ export const StepTwo = (prop) => {
     return (
         <div>
             <div className={'bg-darkAshColor form-card mt-10'}>
-                <p className={'form-title'}>Step-2: Project Details</p>
+                <p className={'form-title text-white'}>Step-2: Project Details</p>
                 <div className={'grid grid-cols-1 lg:grid-cols-2 gap-2 mt-4'}>
                     <Input
                         id={'pn2'}
@@ -134,9 +134,9 @@ export const StepTwo = (prop) => {
                 </div>
 
                 <div className={'col-span-1 lg:col-span-2'}>
-                    <p className={'text-center mt-12'}>
+                    <div className={'flex justify-center gap-x-6 my-8'}>
                         <Link to="/result"
-                              className={'bg-primaryColor text-lightColor rounded-md text-lg px-10 py-2 active:scale-90 ease-in-out duration-100'}
+                              className={'submit-btn'}
                               state={{
                                   enteredName: inputFormOneData.name,
                                   enteredDes: inputFormOneData.description,
@@ -150,9 +150,10 @@ export const StepTwo = (prop) => {
                                   maxZ: maxZ
                               }}
                         >
+                            <img src="/result-icon.svg" alt="" className={'w-[20px]'}/>
                             Show Result
                         </Link>
-                    </p>
+                    </div>
                 </div>
             </div>
         </div>

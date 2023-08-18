@@ -1,38 +1,54 @@
-import {useLocation} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import jsPDF from 'jspdf';
-import {useRef} from "react";
+import 'jspdf-autotable'
 import {Table} from "../component/Table.jsx";
 
 export const Result = () => {
     const location = useLocation();
     let propsData = location.state;
-    const reportTemplateRef = useRef(null);
 
     const handleGeneratePdf = () => {
-        const doc = new jsPDF({
-            format: 'a4',
-            unit: 'px',
-        });
+        const pdf = new jsPDF();
 
-        // Adding the fonts.
-        doc.setFont('Inter-Regular', 'normal');
+        // header
+        const currentDate = new Date().toLocaleDateString();
+        pdf.setFontSize(14);
+        pdf.text(`XYZ-Engine Project Information - ${currentDate}`, 10, 10);
 
-        doc.html(reportTemplateRef.current, {
-            async callback(doc) {
-                doc.save('Final_Result');
+        pdf.autoTable({
+            html: '#dataTable',
+            startY: 20,
+            theme: 'grid', // Apply grid theme
+            styles: {
+                cell: {
+                    textAlign: 'center', // Center-align cells
+                    valign: 'middle',   // Vertically align cells in the middle
+                },
+                head: {
+                    fontSize: 12,
+                },
             },
         });
+        pdf.save(`XYZ-Engine Project Information - ${currentDate}.pdf`);
     };
 
     return (
         <div>
-            <div ref={reportTemplateRef}>
+            <div className={'w-full form-card bg-lightColor text-primaryColor'}>
+                <p className={'form-title'}>Project Details</p>
                 <Table tableData={propsData}/>
             </div>
 
-            <button className="bg-primaryColor mx-auto my-8 block text-lightColor rounded-md text-lg px-10 py-2 active:scale-90 ease-in-out duration-100" onClick={handleGeneratePdf}>
-                Generate PDF
-            </button>
+            <div className={'flex flex-col lg:flex-row justify-center gap-y-6 lg:gap-y-0 lg:gap-x-6 my-8'}>
+                <button className={'submit-btn block'} onClick={handleGeneratePdf}>
+                    <img src="/pdf-icon.svg" alt="" className={'w-[20px]'}/>
+                    Download
+                </button>
+                <Link to={'/'} className={'submit-btn'}>
+                    <img src="/home-icon.svg" alt="" className={'w-[20px]'}/>
+                    Go To Home
+                </Link>
+            </div>
         </div>
     )
 }

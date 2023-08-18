@@ -32,7 +32,7 @@ export const StepOne = (prop) => {
     return (
         <div>
             <div className={'bg-primaryColor form-card'}>
-                <p className={'form-title'}>Step-1:Project Information</p>
+                <p className={'form-title text-white'}>Step-1: Project Data</p>
                 <div className={'grid grid-cols-1 lg:grid-cols-2 gap-2 mt-4'}>
                     <Input
                         id={'pn'}

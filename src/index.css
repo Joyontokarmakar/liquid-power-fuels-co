@@ -6,22 +6,22 @@
     @apply px-2 lg:px-3 py-2
 }
 .input-label{
-    @apply text-lg font-bold text-lightColor
+    @apply text-lg font-bold text-lightColor tracking-[2px]
 }
 .custom-input{
-    @apply border border-gray-400 rounded-md focus:outline-none p-2 w-full mt-2
+    @apply border border-gray-400 rounded-md focus:outline-none p-2 w-full mt-2 tracking-[1px]
 }
 
 .file-choose-card{
-    @apply bg-lightColor px-14 py-10 rounded-md
+    @apply bg-lightColor px-6 lg:px-14 py-8 lg:py-10 rounded-md
 }
 
 .file-input-label{
-    @apply text-lg font-bold text-center text-primaryColor block mb-8
+    @apply text-lg font-bold text-center text-primaryColor block mb-8 tracking-[1px]
 }
 
 .file-input{
-    @apply w-full border border-primaryColor rounded-full text-sm text-darkColor file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primaryColor file:text-dimLightColor hover:file:bg-primaryLightColor hover:cursor-pointer
+    @apply w-full border border-primaryColor rounded-full text-sm tracking-[1px] text-darkColor file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:tracking-[2px] file:font-semibold file:bg-primaryColor file:text-dimLightColor hover:file:bg-primaryLightColor hover:cursor-pointer
 }
 
 .form-card{
@@ -29,9 +29,13 @@
 }
 
 .form-title{
-    @apply mb-3 text-xl text-center font-bold text-white
+    @apply mb-3 text-xl tracking-[2px] text-center font-bold
 }
 
 .chart-card{
     @apply bg-lightColor px-2 lg:px-8 py-3 lg:py-6 rounded-md mt-4
+}
+
+.submit-btn{
+    @apply bg-primaryColor text-lightColor tracking-[1px] px-10 py-2 rounded-md text-lg active:scale-90 ease-in-out duration-100 flex justify-center items-center gap-x-3 w-full lg:w-fit
 }

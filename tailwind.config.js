@@ -10,7 +10,6 @@ export default {
         primaryColor: '#164e63',
         primaryLightColor: '#0d9488',
         darkAshColor: '#0f172a',
-        // darkblueColor: '#000011',
         lightColor: '#ecfeff',
         dimLightColor: '#cffafe',
         darkColor: '#030712',
@@ -20,7 +19,7 @@ export default {
         form:'0px 0px 12px 0px #1e248154'
       },
       fontFamily: {
-        // poppins: ['Poppins', 'sans-serif'],
+        signikaNegative: ['Signika Negative', 'sans-serif'],
       },
       screens: {
         rotateMobile: { min: "515px", max: "574px" },
